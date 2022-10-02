@@ -1,0 +1,21 @@
+name: 'internal-composite-action'
+author: 'Benjamin Stepp'
+description: 'Is maybe broken?'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Gather info
+      shell: bash
+      id: info
+      run: |
+        echo "::set-output name=test::test"
+
+    - name: Cache Some Things
+      uses: actions/cache@v2
+      id: deps-cache
+      with:
+        path: folder
+        key: ${{ steps.info.outputs.test }}
+        restore-keys: |
+          ${{ steps.info.outputs.test }}
