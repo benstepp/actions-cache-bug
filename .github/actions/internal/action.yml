@@ -9,7 +9,7 @@ runs:
       shell: bash
       id: info
       run: |
-        echo "::set-output name=test::test"
+        echo "::set-output name=key::test1"
         echo "::set-output name=path::folder"
 
     - name: Cache Some Things
@@ -17,6 +17,4 @@ runs:
       id: deps-cache
       with:
         path: ${{ steps.info.outputs.path }}
-        key: ${{ steps.info.outputs.test }}
-        restore-keys: |
-          ${{ steps.info.outputs.test }}
+        key: ${{ steps.info.outputs.key }}
