@@ -10,12 +10,13 @@ runs:
       id: info
       run: |
         echo "::set-output name=test::test"
+        echo "::set-output name=path::folder"
 
     - name: Cache Some Things
       uses: actions/cache@v2
       id: deps-cache
       with:
-        path: folder
+        path: ${{ steps.info.outputs.path }}
         key: ${{ steps.info.outputs.test }}
         restore-keys: |
           ${{ steps.info.outputs.test }}
