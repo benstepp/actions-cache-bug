@@ -1,4 +1,4 @@
-name: 'internal-composite-action'
+name: 'internal-caching-action'
 author: 'Benjamin Stepp'
 description: 'Is maybe broken?'
 
@@ -9,7 +9,8 @@ runs:
       shell: bash
       id: info
       run: |
-        echo "::set-output name=key::broken1"
+        echo "Very specific caching action"
+        echo "::set-output name=key::broken2"
         echo "::set-output name=path::folder"
 
     - name: Cache Some Things
