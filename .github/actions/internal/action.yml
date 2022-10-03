@@ -9,7 +9,7 @@ runs:
       shell: bash
       id: info
       run: |
-        echo "::set-output name=key::test1"
+        echo "::set-output name=key::broken1"
         echo "::set-output name=path::folder"
 
     - name: Cache Some Things

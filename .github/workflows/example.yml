@@ -27,4 +27,4 @@ jobs:
         id: deps-cache
         with:
           path: folder
-          key: test1
+          key: works1
